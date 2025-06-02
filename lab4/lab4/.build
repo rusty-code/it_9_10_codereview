@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "Build and compile..."
+g++ -g2 -std=c++2a -o $1 main.cpp source/*.cpp
+echo "Done"
+
+echo "Start GDB"
+gdb -q $1
