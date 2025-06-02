@@ -1,23 +1,14 @@
 #include "../header/tests.h"
 
 
-void test::test1()
-{
-    std::cout << "\nTest1\n";
+void test::test1() {
+    Time tm(
+        checkcin<unsigned int>("Введите кол-во часов"), 
+        checkcin<unsigned int>("Введите кол-во минут")
+    );
 
-    Time tm(0, 0);
-
-    std::cout << tm << " + 125 минут = " << (tm + 125) << std::endl;
-
-    tm.set_hours(0);
-    tm.set_minutes(59);
-
-    std::cout << tm << " + 1 минута = " << (tm + 1) << std::endl;
-
-    tm.set_hours(0);
-    tm.set_minutes(0);
-
-    std::cout << tm << " + 0 минута = " << (tm + 0) << std::endl;
+    unsigned int minutes = checkcin<unsigned int>("Прибавляемое кол-во минут: ");
+    std::cout << tm << " + " << minutes << " = " << (tm + minutes) << std::endl;
 }
 
 

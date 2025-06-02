@@ -1,6 +1,7 @@
 #ifndef TEST
 #define TEST
 
+#include "checkcin.h"
 #include "Time.h"
 
 namespace test
