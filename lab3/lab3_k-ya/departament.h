@@ -14,10 +14,13 @@ private:
     std::vector<Employee*> _employees;
 
 public:
+    // FIXME: параметр
     Department(const std::string& name);
-
+    // FIXME: параметр
     void set_head(Employee* new_head);
+    // FIXME: параметр
     void add_employee(Employee* employee);
+    // FIXME: параметр
     Employee* get_head() const;
     std::string get_name() const;
     const std::vector<Employee*>& get_employees() const;

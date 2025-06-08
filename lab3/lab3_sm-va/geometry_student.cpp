@@ -1,5 +1,6 @@
 ﻿#include "geometry_student.h"
 
+// FIXME: параметр
 Point::Point(double x, double y) : _x(x), _y(y) {}
 
 std::string Point::print() const {

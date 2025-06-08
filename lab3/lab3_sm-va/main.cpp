@@ -60,7 +60,8 @@ int main() {
                     }
                 }
                 };
-
+            
+            //  Отсутвие ввода
             Line line1 = create_line("1");
             Line line2 = create_line("2");
             Line line3 = create_line("3");

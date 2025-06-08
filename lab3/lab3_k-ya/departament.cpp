@@ -6,10 +6,12 @@
 #include "departament.h"
 #include "employee.h"
 
+// FIXME: параметр
 Department::Department(const std::string& name)
     : _name(name), _head(nullptr) {
 }
 
+// FIXME: параметр
 void Department::set_head(Employee* new_head) {
     if (new_head) {
         if (_head) {
@@ -23,6 +25,7 @@ void Department::set_head(Employee* new_head) {
     }
 }
 
+// FIXME: параметр
 void Department::add_employee(Employee* employee) {
     if (std::find(_employees.begin(), _employees.end(), employee) == _employees.end()) {
         _employees.push_back(employee);

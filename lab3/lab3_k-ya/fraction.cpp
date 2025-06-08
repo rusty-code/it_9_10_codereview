@@ -16,35 +16,35 @@ void Fraction::_simplify() {
         _denominator *= -1;
     }
 }
-
+// FIXME: параметр
 Fraction::Fraction(int num, int denom) : _numerator(num), _denominator(denom) {
     if (denom == 0) {
         throw std::invalid_argument("Denominator cannot be zero");
     }
     _simplify();
 }
-
+// FIXME: параметр
 Fraction Fraction::operator+(const Fraction& other) const {
     return Fraction(
         _numerator * other._denominator + other._numerator * _denominator,
         _denominator * other._denominator
     );
 }
-
+// FIXME: параметр
 Fraction Fraction::operator-(const Fraction& other) const {
     return Fraction(
         _numerator * other._denominator - other._numerator * _denominator,
         _denominator * other._denominator
     );
 }
-
+// FIXME: параметр
 Fraction Fraction::operator*(const Fraction& other) const {
     return Fraction(
         _numerator * other._numerator,
         _denominator * other._denominator
     );
 }
-
+// FIXME: параметр
 Fraction Fraction::operator/(const Fraction& other) const {
     if (other._numerator == 0) {
         throw std::invalid_argument("Division by zero is not allowed");
@@ -54,37 +54,37 @@ Fraction Fraction::operator/(const Fraction& other) const {
         _denominator * other._numerator
     );
 }
-
+// FIXME: параметр
 Fraction Fraction::sum(const Fraction& other) const {
     return *this + other;
 }
-
+// FIXME: параметр
 Fraction Fraction::minus(const Fraction& other) const {
     return *this - other;
 }
-
+// FIXME: параметр
 Fraction Fraction::mult(const Fraction& other) const {
     return *this * other;
 }
-
+// FIXME: параметр
 Fraction Fraction::div(const Fraction& other) const {
     return *this / other;
 }
-
+// FIXME: параметр
 Fraction Fraction::minus(int num) const {
     return *this - Fraction(num);
 }
-
+// FIXME: параметр
 std::string Fraction::to_string() const {
     if (_denominator == 1) return std::to_string(_numerator);
     return std::to_string(_numerator) + "/" + std::to_string(_denominator);
 }
-
+// FIXME: параметр
 std::ostream& operator<<(std::ostream& os, const Fraction& f) {
     os << f.to_string();
     return os;
 }
-
+// FIXME: параметр
 std::istream& operator>>(std::istream& is, Fraction& f) {
     char slash;
     is >> f._numerator >> slash >> f._denominator;

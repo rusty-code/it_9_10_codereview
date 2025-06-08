@@ -8,8 +8,10 @@ LineSegment::LineSegment(double start, double end) {
     _x2 = end;
 }
 
+// FIXME: РїР°СЂР°РјРµС‚СЂ
 LineSegment::LineSegment(double point) : _x1(point), _x2(point) {}
 
+// FIXME: РїР°СЂР°РјРµС‚СЂ
 LineSegment::LineSegment(const LineSegment& other) : _x1(other._x1), _x2(other._x2) {}
 
 double LineSegment::start() const {
@@ -20,6 +22,7 @@ double LineSegment::end() const {
     return _x2;
 }
 
+// FIXME: РїР°СЂР°РјРµС‚СЂ
 LineSegment* LineSegment::intersect(const LineSegment& other) const {
     double max_start = std::max(this->start(), other.start());
     double min_end = std::min(this->end(), other.end());
@@ -51,11 +54,11 @@ LineSegment::operator double() const {
 }
 
 void LineSegment::display() const {
-    std::cout << "Отрезок от " << _x1 << " до " << _x2 << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ " << _x1 << " пїЅпїЅ " << _x2 << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const LineSegment& segment) {
-    os << "Отрезок от " << segment._x1 << " до " << segment._x2;
+    os << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ " << segment._x1 << " пїЅпїЅ " << segment._x2;
     return os;
 }
 
@@ -69,7 +72,7 @@ double get_user_input(const std::string& prompt) {
         if (std::cin.fail()) {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Ошибка: введите число." << std::endl;
+            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ." << std::endl;
         }
         else {
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');

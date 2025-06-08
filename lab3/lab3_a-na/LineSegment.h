@@ -12,6 +12,7 @@ private:
     double _x2;
 
 public:
+// FIXME: параметр
     LineSegment(double start, double end);
     LineSegment(double point);
     LineSegment(const LineSegment& other);

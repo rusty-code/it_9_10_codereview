@@ -59,6 +59,8 @@ bool is_valid_name(const std::string& name);
 std::string input_student_name(const std::string& prompt, const std::vector<std::string>& used_names);
 
 void show_menu();
+
+// FIXME: не надо main в подзаголовке объявлять
 int main();
 
 #endif
