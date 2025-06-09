@@ -5,147 +5,146 @@
 #include "LineSegment.h"
 
 void print_menu() {
-    std::cout << "\nМеню операций с отрезками:\n";
-    std::cout << "1. Создать отрезки\n";
-    std::cout << "2. Найти пересечение отрезков\n";
-    std::cout << "3. Применить унарную операцию (!)\n";
-    std::cout << "4. Привести к int (неявное)\n";
-    std::cout << "5. Привести к double (явное)\n";
-    std::cout << "6. Сложить с целым числом\n";
-    std::cout << "7. Сравнить отрезки (оператор >)\n";
-    std::cout << "8. Выход\n";
-    std::cout << "Выберите операцию: ";
+    std::cout << "\nРњРµРЅСЋ РѕРїРµСЂР°С†РёР№ СЃ РѕС‚СЂРµР·РєР°РјРё:\n";
+    std::cout << "1. РЎРѕР·РґР°С‚СЊ РѕС‚СЂРµР·РєРё\n";
+    std::cout << "2. РќР°Р№С‚Рё РїРµСЂРµСЃРµС‡РµРЅРёРµ РѕС‚СЂРµР·РєРѕРІ\n";
+    std::cout << "3. РџСЂРёРјРµРЅРёС‚СЊ СѓРЅР°СЂРЅСѓСЋ РѕРїРµСЂР°С†РёСЋ (!)\n";
+    std::cout << "4. РџСЂРёРІРµСЃС‚Рё Рє int (РЅРµСЏРІРЅРѕРµ)\n";
+    std::cout << "5. РџСЂРёРІРµСЃС‚Рё Рє double (СЏРІРЅРѕРµ)\n";
+    std::cout << "6. РЎР»РѕР¶РёС‚СЊ СЃ С†РµР»С‹Рј С‡РёСЃР»РѕРј\n";
+    std::cout << "7. РЎСЂР°РІРЅРёС‚СЊ РѕС‚СЂРµР·РєРё (РѕРїРµСЂР°С‚РѕСЂ >)\n";
+    std::cout << "8. Р’С‹С…РѕРґ\n";
+    std::cout << "Р’С‹Р±РµСЂРёС‚Рµ РѕРїРµСЂР°С†РёСЋ: ";
 }
 
 int main() {
-    // Настройка локализации
+    // РќР°СЃС‚СЂРѕР№РєР° Р»РѕРєР°Р»РёР·Р°С†РёРё
     setlocale(LC_ALL, "Russian");
 
-
-    LineSegment* segment1 = nullptr;
-    LineSegment* segment2 = nullptr;
-    int choice;
+    LineSegment* _segment1 = nullptr;
+    LineSegment* _segment2 = nullptr;
+    int _choice;
 
     try {
         do {
             print_menu();
-            choice = static_cast<int>(get_user_input(""));
+            _choice = static_cast<int>(get_user_input(""));
 
-            switch (choice) {
+            switch (_choice) {
             case 1: {
-                double start = get_user_input("Введите начало первого отрезка: ");
-                double end = get_user_input("Введите конец первого отрезка: ");
-                delete segment1;
-                segment1 = new LineSegment(start, end);
+                double _start = get_user_input("Р’РІРµРґРёС‚Рµ РЅР°С‡Р°Р»Рѕ РїРµСЂРІРѕРіРѕ РѕС‚СЂРµР·РєР°: ");
+                double _end = get_user_input("Р’РІРµРґРёС‚Рµ РєРѕРЅРµС† РїРµСЂРІРѕРіРѕ РѕС‚СЂРµР·РєР°: ");
+                delete _segment1;
+                _segment1 = new LineSegment(_start, _end);
 
-                start = get_user_input("Введите начало второго отрезка: ");
-                end = get_user_input("Введите конец второго отрезка: ");
-                delete segment2;
-                segment2 = new LineSegment(start, end);
+                _start = get_user_input("Р’РІРµРґРёС‚Рµ РЅР°С‡Р°Р»Рѕ РІС‚РѕСЂРѕРіРѕ РѕС‚СЂРµР·РєР°: ");
+                _end = get_user_input("Р’РІРµРґРёС‚Рµ РєРѕРЅРµС† РІС‚РѕСЂРѕРіРѕ РѕС‚СЂРµР·РєР°: ");
+                delete _segment2;
+                _segment2 = new LineSegment(_start, _end);
 
-                std::cout << "Первый отрезок: " << *segment1 << std::endl;
-                std::cout << "Второй отрезок: " << *segment2 << std::endl;
+                std::cout << "РџРµСЂРІС‹Р№ РѕС‚СЂРµР·РѕРє: " << *_segment1 << std::endl;
+                std::cout << "Р’С‚РѕСЂРѕР№ РѕС‚СЂРµР·РѕРє: " << *_segment2 << std::endl;
                 break;
             }
 
             case 2: {
-                if (!segment1 || !segment2) {
-                    std::cout << "Сначала создайте отрезки!" << std::endl;
+                if (!_segment1 || !_segment2) {
+                    std::cout << "РЎРЅР°С‡Р°Р»Р° СЃРѕР·РґР°Р№С‚Рµ РѕС‚СЂРµР·РєРё!" << std::endl;
                     break;
                 }
 
-                LineSegment* intersection = segment1->intersect(*segment2);
-                if (intersection) {
-                    std::cout << "Пересечение: " << *intersection << std::endl;
-                    delete intersection;
+                LineSegment* _intersection = _segment1->intersect(*_segment2);
+                if (_intersection) {
+                    std::cout << "РџРµСЂРµСЃРµС‡РµРЅРёРµ: " << *_intersection << std::endl;
+                    delete _intersection;
                 }
                 else {
-                    std::cout << "Отрезки не пересекаются." << std::endl;
+                    std::cout << "РћС‚СЂРµР·РєРё РЅРµ РїРµСЂРµСЃРµРєР°СЋС‚СЃСЏ." << std::endl;
                 }
                 break;
             }
 
             case 3: {
-                if (!segment1) {
-                    std::cout << "Сначала создайте отрезок!" << std::endl;
+                if (!_segment1) {
+                    std::cout << "РЎРЅР°С‡Р°Р»Р° СЃРѕР·РґР°Р№С‚Рµ РѕС‚СЂРµР·РѕРє!" << std::endl;
                     break;
                 }
 
-                LineSegment updated_segment = !(*segment1);
-                std::cout << "После унарной операции (!): ";
-                updated_segment.display();
+                LineSegment _updated_segment = !(*_segment1);
+                std::cout << "РџРѕСЃР»Рµ СѓРЅР°СЂРЅРѕР№ РѕРїРµСЂР°С†РёРё (!): ";
+                _updated_segment.display();
                 break;
             }
 
             case 4: {
-                if (!segment1) {
-                    std::cout << "Сначала создайте отрезок!" << std::endl;
+                if (!_segment1) {
+                    std::cout << "РЎРЅР°С‡Р°Р»Р° СЃРѕР·РґР°Р№С‚Рµ РѕС‚СЂРµР·РѕРє!" << std::endl;
                     break;
                 }
 
-                int int_value = *segment1;
-                std::cout << "Неявное приведение к int: " << int_value << std::endl;
+                int _int_value = *_segment1;
+                std::cout << "РќРµСЏРІРЅРѕРµ РїСЂРёРІРµРґРµРЅРёРµ Рє int: " << _int_value << std::endl;
                 break;
             }
 
             case 5: {
-                if (!segment1) {
-                    std::cout << "Сначала создайте отрезок!" << std::endl;
+                if (!_segment1) {
+                    std::cout << "РЎРЅР°С‡Р°Р»Р° СЃРѕР·РґР°Р№С‚Рµ РѕС‚СЂРµР·РѕРє!" << std::endl;
                     break;
                 }
 
-                double double_value = static_cast<double>(*segment1);
-                std::cout << "Явное приведение к double: " << double_value << std::endl;
+                double _double_value = static_cast<double>(*_segment1);
+                std::cout << "РЇРІРЅРѕРµ РїСЂРёРІРµРґРµРЅРёРµ Рє double: " << _double_value << std::endl;
                 break;
             }
 
             case 6: {
-                if (!segment1) {
-                    std::cout << "Сначала создайте отрезок!" << std::endl;
+                if (!_segment1) {
+                    std::cout << "РЎРЅР°С‡Р°Р»Р° СЃРѕР·РґР°Р№С‚Рµ РѕС‚СЂРµР·РѕРє!" << std::endl;
                     break;
                 }
 
-                int offset = static_cast<int>(get_user_input("Введите целое число для сложения: "));
-                LineSegment new_segment = *segment1 + offset;
-                std::cout << "После сложения с " << offset << ": ";
-                new_segment.display();
+                int _offset = static_cast<int>(get_user_input("Р’РІРµРґРёС‚Рµ С†РµР»РѕРµ С‡РёСЃР»Рѕ РґР»СЏ СЃР»РѕР¶РµРЅРёСЏ: "));
+                LineSegment _new_segment = *_segment1 + _offset;
+                std::cout << "РџРѕСЃР»Рµ СЃР»РѕР¶РµРЅРёСЏ СЃ " << _offset << ": ";
+                _new_segment.display();
                 break;
             }
 
             case 7: {
-                if (!segment1 || !segment2) {
-                    std::cout << "Сначала создайте два отрезка!" << std::endl;
+                if (!_segment1 || !_segment2) {
+                    std::cout << "РЎРЅР°С‡Р°Р»Р° СЃРѕР·РґР°Р№С‚Рµ РґРІР° РѕС‚СЂРµР·РєР°!" << std::endl;
                     break;
                 }
 
-                if (*segment1 > *segment2) {
-                    std::cout << "Первый отрезок включает 2." << std::endl;
+                if (*_segment1 > *_segment2) {
+                    std::cout << "РџРµСЂРІС‹Р№ РѕС‚СЂРµР·РѕРє РІРєР»СЋС‡Р°РµС‚ 2." << std::endl;
                 }
                 else {
-                    std::cout << "Первый отрезок не включает 2." << std::endl;
+                    std::cout << "РџРµСЂРІС‹Р№ РѕС‚СЂРµР·РѕРє РЅРµ РІРєР»СЋС‡Р°РµС‚ 2." << std::endl;
                 }
                 break;
             }
 
             case 8: {
-                std::cout << "Выход из программы." << std::endl;
+                std::cout << "Р’С‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹." << std::endl;
                 break;
             }
 
             default: {
-                std::cout << "Неверный выбор. Попробуйте снова." << std::endl;
+                std::cout << "РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ. РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°." << std::endl;
                 break;
             }
             }
-        } while (choice != 8);
+        } while (_choice != 8);
 
     }
-    catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
+    catch (const std::exception& _e) {
+        std::cerr << "Error: " << _e.what() << std::endl;
     }
 
-    delete segment1;
-    delete segment2;
+    delete _segment1;
+    delete _segment2;
 
     return 0;
 }
