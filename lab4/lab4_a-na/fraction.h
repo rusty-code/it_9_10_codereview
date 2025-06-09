@@ -4,10 +4,6 @@
 
 #include <string>
 
-/* FIXME:
-    Класс Fraction представляет математическую дробь
-    с основными арифметическими операциями
-*/
 class Fraction {
 private:
     int _numerator;
@@ -26,6 +22,7 @@ public:
     Fraction subtract(int _number) const;
     Fraction multiply(int _number) const;
     Fraction divide(int _number) const;
+    
     static Fraction input_from_keyboard();
 };
 
