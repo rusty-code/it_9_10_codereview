@@ -1,18 +1,16 @@
 #include "LineSegment.h"
 
-LineSegment::LineSegment(double start, double end) {
-    if (start > end) {
+LineSegment::LineSegment(double _start, double _end) {
+    if (_start > _end) {
         throw std::invalid_argument("Start cannot be greater than end");
     }
-    _x1 = start;
-    _x2 = end;
+    _x1 = _start;
+    _x2 = _end;
 }
 
-// FIXME: параметр
-LineSegment::LineSegment(double point) : _x1(point), _x2(point) {}
+LineSegment::LineSegment(double _point) : _x1(_point), _x2(_point) {}
 
-// FIXME: параметр
-LineSegment::LineSegment(const LineSegment& other) : _x1(other._x1), _x2(other._x2) {}
+LineSegment::LineSegment(const LineSegment& _other) : _x1(_other._x1), _x2(_other._x2) {}
 
 double LineSegment::start() const {
     return _x1;
@@ -22,10 +20,9 @@ double LineSegment::end() const {
     return _x2;
 }
 
-// FIXME: параметр
-LineSegment* LineSegment::intersect(const LineSegment& other) const {
-    double max_start = std::max(this->start(), other.start());
-    double min_end = std::min(this->end(), other.end());
+LineSegment* LineSegment::intersect(const LineSegment& _other) const {
+    double max_start = std::max(this->start(), _other.start());
+    double min_end = std::min(this->end(), _other.end());
 
     if (max_start <= min_end) {
         return new LineSegment(max_start, min_end);
@@ -37,12 +34,12 @@ LineSegment LineSegment::operator!() const {
     return LineSegment(0, std::max(_x1, _x2));
 }
 
-LineSegment LineSegment::operator+(int offset) const {
-    return LineSegment(_x1 + offset, _x2 + offset);
+LineSegment LineSegment::operator+(int _offset) const {
+    return LineSegment(_x1 + _offset, _x2 + _offset);
 }
 
-bool LineSegment::operator>(const LineSegment& other) const {
-    return (_x1 <= other._x1 && _x2 >= other._x2);
+bool LineSegment::operator>(const LineSegment& _other) const {
+    return (_x1 <= _other._x1 && _x2 >= _other._x2);
 }
 
 LineSegment::operator int() const {
@@ -54,25 +51,25 @@ LineSegment::operator double() const {
 }
 
 void LineSegment::display() const {
-    std::cout << "������� �� " << _x1 << " �� " << _x2 << std::endl;
+    std::cout << "Segment from " << _x1 << " to " << _x2 << std::endl;
 }
 
-std::ostream& operator<<(std::ostream& os, const LineSegment& segment) {
-    os << "������� �� " << segment._x1 << " �� " << segment._x2;
-    return os;
+std::ostream& operator<<(std::ostream& _os, const LineSegment& _segment) {
+    _os << "Segment from " << _segment._x1 << " to " << _segment._x2;
+    return _os;
 }
 
-double get_user_input(const std::string& prompt) {
+double get_user_input(const std::string& _prompt) {
     double value;
 
     while (true) {
-        std::cout << prompt;
+        std::cout << _prompt;
         std::cin >> value;
 
         if (std::cin.fail()) {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "������: ������� �����." << std::endl;
+            std::cout << "Error: please enter a number." << std::endl;
         }
         else {
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
