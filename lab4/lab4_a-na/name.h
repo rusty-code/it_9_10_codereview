@@ -12,9 +12,9 @@ private:
 
 public:
     Name();
-    Name(std::string f_name);
-    Name(std::string f_name, std::string s_name);
-    Name(std::string f_name, std::string s_name, std::string p_name);
+    explicit Name(std::string _f_name);
+    Name(std::string _f_name, std::string _s_name);
+    Name(std::string _f_name, std::string _s_name, std::string _p_name);
 
     std::string to_string() const;
     void print() const;
