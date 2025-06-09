@@ -1,54 +1,53 @@
 #include <iostream>
-
 #include "name.h"
 #include "utils.h"
 
 Name::Name() : _surname(""), _first_name(""), _patronymic("") {}
 
-Name::Name(std::string f_name) : _surname(""), _first_name(f_name), _patronymic("") {}
+Name::Name(std::string _f_name) : _surname(""), _first_name(_f_name), _patronymic("") {}
 
-Name::Name(std::string f_name, std::string s_name) :
-    _surname(s_name), _first_name(f_name), _patronymic("") {
+Name::Name(std::string _f_name, std::string _s_name) :
+    _surname(_s_name), _first_name(_f_name), _patronymic("") {
 }
 
-Name::Name(std::string f_name, std::string s_name, std::string p_name) :
-    _surname(s_name), _first_name(f_name), _patronymic(p_name) {
+Name::Name(std::string _f_name, std::string _s_name, std::string _p_name) :
+    _surname(_s_name), _first_name(_f_name), _patronymic(_p_name) {
 }
 
 std::string Name::to_string() const {
-    std::string result;
-    if (!_surname.empty()) result += _surname + " ";
-    if (!_first_name.empty()) result += _first_name + " ";
-    if (!_patronymic.empty()) result += _patronymic;
+    std::string _result;
+    if (!_surname.empty()) _result += _surname + " ";
+    if (!_first_name.empty()) _result += _first_name + " ";
+    if (!_patronymic.empty()) _result += _patronymic;
 
-    if (!result.empty() && result.back() == ' ') {
-        result.pop_back();
+    if (!_result.empty() && _result.back() == ' ') {
+        _result.pop_back();
     }
-    return result;
+    return _result;
 }
 
 void Name::print() const {
-    std::cout << "Èìÿ: " << to_string() << std::endl;
+    std::cout << "Ð¤Ð˜Ðž: " << to_string() << std::endl;
 }
 
 Name Name::input_from_keyboard() {
-    std::cout << "\nÂâåäèòå äàííûå èìåíè:\n";
-    std::string f_name = input_name("Ëè÷íîå èìÿ: ");
-    std::string s_name = input_string("Ôàìèëèÿ (åñëè íåò - îñòàâüòå ïóñòûì): ", true);
-    std::string p_name = input_string("Îò÷åñòâî (åñëè íåò - îñòàâüòå ïóñòûì): ", true);
+    std::cout << "\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¸Ð¼ÐµÐ½Ð¸:\n";
+    std::string _f_name = input_name("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ: ");
+    std::string _s_name = input_string("Ð¤Ð°Ð¼Ð¸Ð»Ð¸Ñ (ÐµÑÐ»Ð¸ Ð½ÐµÑ‚ - Ð¾ÑÑ‚Ð°Ð²ÑŒÑ‚Ðµ Ð¿ÑƒÑÑ‚Ñ‹Ð¼): ", true);
+    std::string _p_name = input_string("ÐžÑ‚Ñ‡ÐµÑÑ‚Ð²Ð¾ (ÐµÑÐ»Ð¸ Ð½ÐµÑ‚ - Ð¾ÑÑ‚Ð°Ð²ÑŒÑ‚Ðµ Ð¿ÑƒÑÑ‚Ñ‹Ð¼): ", true);
 
-    if (f_name.empty()) {
-        std::cout << "Îøèáêà: ëè÷íîå èìÿ íå ìîæåò áûòü ïóñòûì. Óñòàíîâëåíî çíà÷åíèå 'Íåèçâåñòíî'.\n";
-        f_name = "Íåèçâåñòíî";
+    if (_f_name.empty()) {
+        std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: Ð¿Ð¾Ð»Ðµ Ð¸Ð¼ÐµÐ½Ð¸ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð¿ÑƒÑÑ‚Ñ‹Ð¼. Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ 'ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ñ‹Ð¹'.\n";
+        _f_name = "ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ñ‹Ð¹";
     }
 
-    if (s_name.empty() && p_name.empty()) {
-        return Name(f_name);
+    if (_s_name.empty() && _p_name.empty()) {
+        return Name(_f_name);
     }
-    else if (p_name.empty()) {
-        return Name(f_name, s_name);
+    else if (_p_name.empty()) {
+        return Name(_f_name, _s_name);
     }
     else {
-        return Name(f_name, s_name, p_name);
+        return Name(_f_name, _s_name, _p_name);
     }
 }
