@@ -1,27 +1,25 @@
-
-
-#include "house.h"
-#include "utils.h"
 #include <iostream>
 #include <string>
+#include "house.h"
+#include "utils.h"
 
 House::House(int _f) : _floors(_f) {}
 
 std::string House::to_string() const {
     std::string ending;
     if (_floors % 100 >= 11 && _floors % 100 <= 19) {
-        ending = "åé";
+        ending = "ÐµÐ¹";
     }
     else {
         switch (_floors % 10) {
         case 1: ending = ""; break;
         case 2:
         case 3:
-        case 4: ending = "à"; break;
-        default: ending = "åé"; break;
+        case 4: ending = "Ð°"; break;
+        default: ending = "ÐµÐ¹"; break;
         }
     }
-    return "äîì ñ " + std::to_string(_floors) + " ýòàæ" + ending;
+    return "Ð”Ð¾Ð¼ Ñ " + std::to_string(_floors) + " ÑÑ‚Ð°Ð¶" + ending;
 }
 
 void House::print() const {
@@ -31,9 +29,9 @@ void House::print() const {
 House House::input_from_keyboard() {
     int _floors;
     while (true) {
-        _floors = input_int("Ââåäèòå êîëè÷åñòâî ýòàæåé: ");
+        _floors = input_int("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÑ‚Ð°Ð¶ÐµÐ¹: ");
         if (_floors > 0) break;
-        std::cout << "Êîëè÷åñòâî ýòàæåé äîëæíî áûòü ïîëîæèòåëüíûì ÷èñëîì!\n";
+        std::cout << "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÑ‚Ð°Ð¶ÐµÐ¹ Ð´Ð¾Ð»Ð¶Ð½Ð¾ Ð±Ñ‹Ñ‚ÑŒ Ð¿Ð¾Ð»Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¼ Ñ‡Ð¸ÑÐ»Ð¾Ð¼!\n";
     }
     return House(_floors);
 }
