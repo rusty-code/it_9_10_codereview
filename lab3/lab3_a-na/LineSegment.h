@@ -12,26 +12,25 @@ private:
     double _x2;
 
 public:
-// FIXME: параметр
-    LineSegment(double start, double end);
-    LineSegment(double point);
-    LineSegment(const LineSegment& other);
+    LineSegment(double _start, double _end);
+    LineSegment(double _point);
+    LineSegment(const LineSegment& _other);
 
     double start() const;
     double end() const;
 
-    LineSegment* intersect(const LineSegment& other) const;
+    LineSegment* intersect(const LineSegment& _other) const;
     LineSegment operator!() const;
-    LineSegment operator+(int offset) const;
-    bool operator>(const LineSegment& other) const;
+    LineSegment operator+(int _offset) const;
+    bool operator>(const LineSegment& _other) const;
 
     operator int() const;
     explicit operator double() const;
 
     void display() const;
-    friend std::ostream& operator<<(std::ostream& os, const LineSegment& segment);
+    friend std::ostream& operator<<(std::ostream& _os, const LineSegment& _segment);
 };
 
-double get_user_input(const std::string& prompt);
+double get_user_input(const std::string& _prompt);
 
 #endif
