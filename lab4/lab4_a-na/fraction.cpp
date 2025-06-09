@@ -1,7 +1,6 @@
 #include <iostream>
 #include <numeric>
 #include <stdexcept>
-
 #include "fraction.h"
 #include "utils.h"
 
@@ -27,7 +26,7 @@ std::string Fraction::to_string() const {
 }
 
 void Fraction::print() const {
-    std::cout << "Äðîáü: " << to_string() << std::endl;
+    std::cout << "Ð”Ñ€Ð¾Ð±ÑŒ: " << to_string() << std::endl;
 }
 
 Fraction Fraction::add(const Fraction& _other) const {
@@ -74,12 +73,12 @@ Fraction Fraction::divide(int _number) const {
 }
 
 Fraction Fraction::input_from_keyboard() {
-    int _num = input_int("Ââåäèòå ÷èñëèòåëü: ");
+    int _num = input_int("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¸Ñ‚ÐµÐ»ÑŒ: ");
     int _denom;
     while (true) {
-        _denom = input_int("Ââåäèòå çíàìåíàòåëü (íå 0): ");
+        _denom = input_int("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð·Ð½Ð°Ð¼ÐµÐ½Ð°Ñ‚ÐµÐ»ÑŒ (Ð½Ðµ 0): ");
         if (_denom != 0) break;
-        std::cout << "Çíàìåíàòåëü íå ìîæåò áûòü íóëåì!\n";
+        std::cout << "Ð—Ð½Ð°Ð¼ÐµÐ½Ð°Ñ‚ÐµÐ»ÑŒ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð½ÑƒÐ»Ñ‘Ð¼!\n";
     }
     return Fraction(_num, _denom);
 }
