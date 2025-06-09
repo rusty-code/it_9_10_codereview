@@ -6,10 +6,10 @@
 
 class House {
 private:
-    const int _floors;
+    const int _floors; 
 
 public:
-    House(int f);
+    House(int _f);
     std::string to_string() const;
     void print() const;
     static House input_from_keyboard();
