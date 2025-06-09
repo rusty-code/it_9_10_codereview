@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include "employee.h"
 #include "department.h"
 #include "utils.h"
@@ -8,13 +7,13 @@ Employee::Employee(const std::string& _n) : _name(_n), _department(nullptr) {}
 
 std::string Employee::to_string() const {
     if (_department && _department->get_head() == this) {
-        return _name + " начальник отдела " + _department->get_name();
+        return _name + " (РЅР°С‡Р°Р»СЊРЅРёРє РѕС‚РґРµР»Р° " + _department->get_name() + ")";
     }
     else if (_department) {
-        return _name + " работает в отделе " + _department->get_name() +
-            ", начальник которого " + _department->get_head()->get_name();
+        return _name + " (СЂР°Р±РѕС‚Р°РµС‚ РІ РѕС‚РґРµР»Рµ " + _department->get_name() + 
+               ", РЅР°С‡Р°Р»СЊРЅРёРє " + _department->get_head()->get_name() + ")";
     }
-    return _name + " (без отдела)";
+    return _name + " (Р±РµР· РѕС‚РґРµР»Р°)";
 }
 
 void Employee::set_department(Department* _dept) {
@@ -36,9 +35,9 @@ void Employee::print() const {
 Employee Employee::input_from_keyboard() {
     std::string _name;
     while (true) {
-        _name = input_string("Введите имя сотрудника: ");
+        _name = input_string("Р’РІРµРґРёС‚Рµ РёРјСЏ СЃРѕС‚СЂСѓРґРЅРёРєР°: ");
         if (!_name.empty()) break;
-        std::cout << "Имя сотрудника не может быть пустым!\n";
+        std::cout << "РРјСЏ СЃРѕС‚СЂСѓРґРЅРёРєР° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј!\n";
     }
     return Employee(_name);
 }
