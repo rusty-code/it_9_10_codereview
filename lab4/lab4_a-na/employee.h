@@ -4,12 +4,8 @@
 
 #include <string>
 
-class Department; // Forward declaration
+class Department; 
 
-/* FIXME:
-     ласс Employee представл€ет сотрудника с возможностью
-    прив€зки к отделу и назначени€ начальником
-*/
 class Employee {
 private:
     std::string _name;
