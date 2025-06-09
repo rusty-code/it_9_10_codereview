@@ -5,65 +5,66 @@
 #include "utils.h"
 
 int input_int(const std::string& _prompt, int _min, int _max) {
-    int value;
+    int _value;
     while (true) {
         std::cout << _prompt;
-        std::cin >> value;
+        std::cin >> _value;
         if (std::cin.fail()) {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Îøèáêà ââîäà. Ïîæàëóéñòà, ââåäèòå öåëîå ÷èñëî.\n";
+            std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð²Ð²Ð¾Ð´Ð°. ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ†ÐµÐ»Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾.\n";
         }
-        else if (value < _min || value > _max) {
+        else if (_value < _min || _value > _max) {
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "×èñëî äîëæíî áûòü â äèàïàçîíå îò " << _min << " äî " << _max << ". Ïîïðîáóéòå ñíîâà.\n";
+            std::cout << "Ð§Ð¸ÑÐ»Ð¾ Ð´Ð¾Ð»Ð¶Ð½Ð¾ Ð±Ñ‹Ñ‚ÑŒ Ð² Ð´Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½Ðµ Ð¾Ñ‚ " << _min << " Ð´Ð¾ " << _max << ". ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÑÐ½Ð¾Ð²Ð°.\n";
         }
         else {
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            return value;
+            return _value;
         }
     }
 }
 
 std::string input_string(const std::string& _prompt, bool _allow_empty) {
-    std::string value;
+    std::string _value;
     while (true) {
         std::cout << _prompt;
-        std::getline(std::cin, value);
+        std::getline(std::cin, _value);
 
-        value.erase(value.begin(), std::find_if(value.begin(), value.end(), [](int ch) {
+        // Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ Ð½Ð°Ñ‡Ð°Ð»ÑŒÐ½Ñ‹Ñ… Ð¸ ÐºÐ¾Ð½ÐµÑ‡Ð½Ñ‹Ñ… Ð¿Ñ€Ð¾Ð±ÐµÐ»Ð¾Ð²
+        _value.erase(_value.begin(), std::find_if(_value.begin(), _value.end(), [](int ch) {
             return !std::isspace(ch);
             }));
-        value.erase(std::find_if(value.rbegin(), value.rend(), [](int ch) {
+        _value.erase(std::find_if(_value.rbegin(), _value.rend(), [](int ch) {
             return !std::isspace(ch);
-            }).base(), value.end());
+            }).base(), _value.end());
 
-        if (!_allow_empty && value.empty()) {
-            std::cout << "Ââîä íå ìîæåò áûòü ïóñòûì. Ïîæàëóéñòà, ïîïðîáóéòå ñíîâà.\n";
+        if (!_allow_empty && _value.empty()) {
+            std::cout << "ÐŸÐ¾Ð»Ðµ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð¿ÑƒÑÑ‚Ñ‹Ð¼. ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‚ÐµÐºÑÑ‚.\n";
         }
         else {
-            return value;
+            return _value;
         }
     }
 }
 
 std::string input_name(const std::string& _prompt) {
     while (true) {
-        std::string name = input_string(_prompt);
-        bool valid = true;
+        std::string _name = input_string(_prompt, false);
+        bool _valid = true;
 
-        for (char c : name) {
-            if (!std::isalpha(c) && c != '-' && c != ' ' && c != '\'') {
-                valid = false;
+        for (char _c : _name) {
+            if (!std::isalpha(_c) && _c != '-' && _c != ' ' && _c != '\'') {
+                _valid = false;
                 break;
             }
         }
 
-        if (!valid) {
-            std::cout << "Èìÿ ìîæåò ñîäåðæàòü òîëüêî áóêâû, äåôèñû, àïîñòðîôû è ïðîáåëû. Ïîïðîáóéòå ñíîâà.\n";
+        if (!_valid) {
+            std::cout << "Ð˜Ð¼Ñ Ð¼Ð¾Ð¶ÐµÑ‚ ÑÐ¾Ð´ÐµÑ€Ð¶Ð°Ñ‚ÑŒ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð±ÑƒÐºÐ²Ñ‹, Ð´ÐµÑ„Ð¸ÑÑ‹, Ð¿Ñ€Ð¾Ð±ÐµÐ»Ñ‹ Ð¸ Ð°Ð¿Ð¾ÑÑ‚Ñ€Ð¾Ñ„Ñ‹. ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÑÐ½Ð¾Ð²Ð°.\n";
         }
         else {
-            return name;
+            return _name;
         }
     }
 }
