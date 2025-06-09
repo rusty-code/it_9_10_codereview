@@ -13,147 +13,147 @@ int main() {
     setlocale(LC_ALL, "Russian");
     using namespace std;
 
-    std::cout << "=== Ëàáîðàòîðíàÿ ðàáîòà ¹3. Âàðèàíò 8 ===\n";
+    std::cout << "=== Ð›Ð°Ð±Ð¾Ñ€Ð°Ñ‚Ð¾Ñ€Ð½Ð°Ñ Ñ€Ð°Ð±Ð¾Ñ‚Ð° â„–3. Ð’Ð°Ñ€Ð¸Ð°Ð½Ñ‚ 8 ===\n";
 
     std::vector<Employee*> employees;
     std::vector<Department*> departments;
 
     while (true) {
-        std::cout << "\nÌåíþ:\n";
-        std::cout << "1. Çàäàíèå 1.3: Èìÿ\n";
-        std::cout << "2. Çàäàíèå 1.5: Äîì\n";
-        std::cout << "3. Çàäàíèå 2.4: Ñîòðóäíèêè è îòäåëû\n";
-        std::cout << "4. Çàäàíèå 3.4: Ñîòðóäíèêè è îòäåëû (ðàñøèðåííàÿ)\n";
-        std::cout << "5. Çàäàíèå 4.5: Ñîçäàåì Èìåíà\n";
-        std::cout << "6. Çàäàíèå 5.5: Äðîáè\n";
-        std::cout << "0. Âûõîä\n";
+        std::cout << "\nÐœÐµÐ½ÑŽ:\n";
+        std::cout << "1. Ð—Ð°Ð´Ð°Ð½Ð¸Ðµ 1.3: Ð¤Ð˜Ðž\n";
+        std::cout << "2. Ð—Ð°Ð´Ð°Ð½Ð¸Ðµ 1.5: Ð”Ð¾Ð¼\n";
+        std::cout << "3. Ð—Ð°Ð´Ð°Ð½Ð¸Ðµ 2.4: Ð¡Ð¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ¸ Ð¸ Ð¾Ñ‚Ð´ÐµÐ»\n";
+        std::cout << "4. Ð—Ð°Ð´Ð°Ð½Ð¸Ðµ 3.4: Ð¡Ð¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ¸ Ð¸ Ð¾Ñ‚Ð´ÐµÐ» (Ð½Ð°ÑÐ»ÐµÐ´Ð¾Ð²Ð°Ð½Ð¸Ðµ)\n";
+        std::cout << "5. Ð—Ð°Ð´Ð°Ð½Ð¸Ðµ 4.5: ÐŸÐ¾Ð»Ð½Ð¾Ðµ Ð¸Ð¼Ñ\n";
+        std::cout << "6. Ð—Ð°Ð´Ð°Ð½Ð¸Ðµ 5.5: Ð”Ñ€Ð¾Ð±ÑŒ\n";
+        std::cout << "0. Ð’Ñ‹Ñ…Ð¾Ð´\n";
 
-        int choice;
+        int _choice;
         while (true) {
-            choice = input_int("Âûáåðèòå çàäàíèå (0-6): ");
-            if (choice >= 0 && choice <= 6) break;
-            std::cout << "Íåâåðíûé âûáîð. Ââåäèòå ÷èñëî îò 0 äî 6.\n";
+            _choice = input_int("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñƒ (0-6): ");
+            if (_choice >= 0 && _choice <= 6) break;
+            std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð²Ð²Ð¾Ð´Ð°. ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð¾Ñ‚ 0 Ð´Ð¾ 6.\n";
         }
 
-        switch (choice) {
+        switch (_choice) {
         case 1: {
-            std::cout << "\n=== Çàäàíèå 1.3: Èìÿ ===\n";
-            Name name = Name::input_from_keyboard();
-            name.print();
+            std::cout << "\n=== Ð—Ð°Ð´Ð°Ð½Ð¸Ðµ 1.3: Ð¤Ð˜Ðž ===\n";
+            Name _name = Name::input_from_keyboard();
+            _name.print();
             break;
         }
         case 2: {
-            std::cout << "\n=== Çàäàíèå 1.5: Äîì ===\n";
-            House house = House::input_from_keyboard();
-            house.print();
+            std::cout << "\n=== Ð—Ð°Ð´Ð°Ð½Ð¸Ðµ 1.5: Ð”Ð¾Ð¼ ===\n";
+            House _house = House::input_from_keyboard();
+            _house.print();
             break;
         }
         case 3: {
-            std::cout << "\n=== Çàäàíèå 2.4: Ñîòðóäíèêè è îòäåëû ===\n";
-            std::cout << "1. Äîáàâèòü ñîòðóäíèêà\n";
-            std::cout << "2. Ñîçäàòü îòäåë\n";
-            std::cout << "3. Ïîêàçàòü âñåõ ñîòðóäíèêîâ\n";
-            std::cout << "4. Ïîêàçàòü âñå îòäåëû\n";
-            int sub_choice;
+            std::cout << "\n=== Ð—Ð°Ð´Ð°Ð½Ð¸Ðµ 2.4: Ð¡Ð¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ¸ Ð¸ Ð¾Ñ‚Ð´ÐµÐ» ===\n";
+            std::cout << "1. Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÑÐ¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ°\n";
+            std::cout << "2. Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ Ð¾Ñ‚Ð´ÐµÐ»\n";
+            std::cout << "3. ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð²ÑÐµÑ… ÑÐ¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ¾Ð²\n";
+            std::cout << "4. ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð²ÑÐµ Ð¾Ñ‚Ð´ÐµÐ»Ñ‹\n";
+            int _sub_choice;
             while (true) {
-                sub_choice = input_int("Âûáåðèòå äåéñòâèå (1-4): ");
-                if (sub_choice >= 1 && sub_choice <= 4) break;
-                std::cout << "Íåâåðíûé âûáîð. Ââåäèòå ÷èñëî îò 1 äî 4.\n";
+                _sub_choice = input_int("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ (1-4): ");
+                if (_sub_choice >= 1 && _sub_choice <= 4) break;
+                std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð²Ð²Ð¾Ð´Ð°. ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð¾Ñ‚ 1 Ð´Ð¾ 4.\n";
             }
 
-            if (sub_choice == 1) {
-                Employee* emp = new Employee(Employee::input_from_keyboard());
-                employees.push_back(emp);
-                std::cout << "Ñîòðóäíèê äîáàâëåí.\n";
-                emp->print();
+            if (_sub_choice == 1) {
+                Employee* _emp = new Employee(Employee::input_from_keyboard());
+                employees.push_back(_emp);
+                std::cout << "Ð¡Ð¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸Ðº Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½.\n";
+                _emp->print();
             }
-            else if (sub_choice == 2) {
+            else if (_sub_choice == 2) {
                 if (employees.empty()) {
-                    std::cout << "Íåò ñîòðóäíèêîâ äëÿ ñîçäàíèÿ îòäåëà. Ñíà÷àëà äîáàâüòå ñîòðóäíèêîâ.\n";
+                    std::cout << "ÐÐµÑ‚ ÑÐ¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ¾Ð² Ð´Ð»Ñ ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ Ð¾Ñ‚Ð´ÐµÐ»Ð°. ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, ÑÐ½Ð°Ñ‡Ð°Ð»Ð° Ð´Ð¾Ð±Ð°Ð²ÑŒÑ‚Ðµ ÑÐ¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ¾Ð².\n";
                 }
                 else {
-                    Department* dept = new Department(Department::input_from_keyboard(employees));
-                    departments.push_back(dept);
-                    std::cout << "Îòäåë ñîçäàí.\n";
-                    dept->print();
+                    Department* _dept = new Department(Department::input_from_keyboard(employees));
+                    departments.push_back(_dept);
+                    std::cout << "ÐžÑ‚Ð´ÐµÐ» ÑÐ¾Ð·Ð´Ð°Ð½.\n";
+                    _dept->print();
                 }
             }
-            else if (sub_choice == 3) {
+            else if (_sub_choice == 3) {
                 if (employees.empty()) {
-                    std::cout << "Íåò ñîòðóäíèêîâ äëÿ îòîáðàæåíèÿ.\n";
+                    std::cout << "ÐÐµÑ‚ ÑÐ¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ¾Ð² Ð´Ð»Ñ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ.\n";
                 }
                 else {
-                    std::cout << "Ñïèñîê ñîòðóäíèêîâ:\n";
-                    for (const auto& emp : employees) {
-                        emp->print();
+                    std::cout << "Ð¡Ð¿Ð¸ÑÐ¾Ðº ÑÐ¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ¾Ð²:\n";
+                    for (const auto& _emp : employees) {
+                        _emp->print();
                     }
                 }
             }
-            else if (sub_choice == 4) {
+            else if (_sub_choice == 4) {
                 if (departments.empty()) {
-                    std::cout << "Íåò îòäåëîâ äëÿ îòîáðàæåíèÿ.\n";
+                    std::cout << "ÐÐµÑ‚ Ð¾Ñ‚Ð´ÐµÐ»Ð¾Ð² Ð´Ð»Ñ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ.\n";
                 }
                 else {
-                    std::cout << "Ñïèñîê îòäåëîâ:\n";
-                    for (const auto& dept : departments) {
-                        dept->print();
+                    std::cout << "Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð¾Ñ‚Ð´ÐµÐ»Ð¾Ð²:\n";
+                    for (const auto& _dept : departments) {
+                        _dept->print();
                     }
                 }
             }
             break;
         }
         case 4: {
-            std::cout << "\n=== Çàäàíèå 3.4: Ñîòðóäíèêè è îòäåëû (ðàñøèðåííàÿ) ===\n";
+            std::cout << "\n=== Ð—Ð°Ð´Ð°Ð½Ð¸Ðµ 3.4: Ð¡Ð¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ¸ Ð¸ Ð¾Ñ‚Ð´ÐµÐ» (Ð½Ð°ÑÐ»ÐµÐ´Ð¾Ð²Ð°Ð½Ð¸Ðµ) ===\n";
             if (employees.empty()) {
-                std::cout << "Íåò ñîòðóäíèêîâ äëÿ ñîçäàíèÿ îòäåëà. Ñíà÷àëà äîáàâüòå ñîòðóäíèêîâ.\n";
+                std::cout << "ÐÐµÑ‚ ÑÐ¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ¾Ð² Ð´Ð»Ñ ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ Ð¾Ñ‚Ð´ÐµÐ»Ð°. ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, ÑÐ½Ð°Ñ‡Ð°Ð»Ð° Ð´Ð¾Ð±Ð°Ð²ÑŒÑ‚Ðµ ÑÐ¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ¾Ð².\n";
             }
             else {
-                DepartmentEx* dept = new DepartmentEx(DepartmentEx::input_from_keyboard(employees));
-                departments.push_back(dept);
-                std::cout << "Ðàñøèðåííûé îòäåë ñîçäàí.\n";
-                dept->print();
+                DepartmentEx* _dept = new DepartmentEx(DepartmentEx::input_from_keyboard(employees));
+                departments.push_back(_dept);
+                std::cout << "ÐÐ°ÑÐ»ÐµÐ´Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ Ð¾Ñ‚Ð´ÐµÐ» ÑÐ¾Ð·Ð´Ð°Ð½.\n";
+                _dept->print();
             }
             break;
         }
         case 5: {
-            std::cout << "\n=== Çàäàíèå 4.5: Ñîçäàåì Èìåíà ===\n";
-            Name name = Name::input_from_keyboard();
-            name.print();
+            std::cout << "\n=== Ð—Ð°Ð´Ð°Ð½Ð¸Ðµ 4.5: ÐŸÐ¾Ð»Ð½Ð¾Ðµ Ð¸Ð¼Ñ ===\n";
+            Name _name = Name::input_from_keyboard();
+            _name.print();
             break;
         }
         case 6: {
-            std::cout << "\n=== Çàäàíèå 5.5: Äðîáè ===\n";
-            Fraction f1 = Fraction::input_from_keyboard();
-            Fraction f2 = Fraction::input_from_keyboard();
+            std::cout << "\n=== Ð—Ð°Ð´Ð°Ð½Ð¸Ðµ 5.5: Ð”Ñ€Ð¾Ð±ÑŒ ===\n";
+            Fraction _f1 = Fraction::input_from_keyboard();
+            Fraction _f2 = Fraction::input_from_keyboard();
 
-            f1.print();
-            f2.print();
+            _f1.print();
+            _f2.print();
 
-            std::cout << "\nÐåçóëüòàòû îïåðàöèé:\n";
-            std::cout << f1.to_string() << " + " << f2.to_string() << " = " << f1.add(f2).to_string() << std::endl;
-            std::cout << f1.to_string() << " - " << f2.to_string() << " = " << f1.subtract(f2).to_string() << std::endl;
-            std::cout << f1.to_string() << " * " << f2.to_string() << " = " << f1.multiply(f2).to_string() << std::endl;
-
-            try {
-                std::cout << f1.to_string() << " / " << f2.to_string() << " = " << f1.divide(f2).to_string() << std::endl;
-            }
-            catch (const std::invalid_argument& e) {
-                std::cout << "Îøèáêà: " << e.what() << std::endl;
-            }
+            std::cout << "\nÐÑ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ¸Ðµ Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ð¸:\n";
+            std::cout << _f1.to_string() << " + " << _f2.to_string() << " = " << _f1.add(_f2).to_string() << std::endl;
+            std::cout << _f1.to_string() << " - " << _f2.to_string() << " = " << _f1.subtract(_f2).to_string() << std::endl;
+            std::cout << _f1.to_string() << " * " << _f2.to_string() << " = " << _f1.multiply(_f2).to_string() << std::endl;
 
             try {
-                Fraction result = f1.add(f2).divide(Fraction::input_from_keyboard()).subtract(5);
-                std::cout << "\nÐåçóëüòàò öåïî÷êè îïåðàöèé: " << result.to_string() << std::endl;
+                std::cout << _f1.to_string() << " / " << _f2.to_string() << " = " << _f1.divide(_f2).to_string() << std::endl;
             }
-            catch (const std::invalid_argument& e) {
-                std::cout << "Îøèáêà ïðè âûïîëíåíèè îïåðàöèé: " << e.what() << std::endl;
+            catch (const std::invalid_argument& _e) {
+                std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: " << _e.what() << std::endl;
+            }
+
+            try {
+                Fraction _result = _f1.add(_f2).divide(Fraction::input_from_keyboard()).subtract(5);
+                std::cout << "\nÐ ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚ ÑÐ»Ð¾Ð¶Ð½Ð¾Ð¹ Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ð¸: " << _result.to_string() << std::endl;
+            }
+            catch (const std::invalid_argument& _e) {
+                std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ñ€Ð¸ Ð²Ñ‹Ñ‡Ð¸ÑÐ»ÐµÐ½Ð¸Ð¸ Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ð¸: " << _e.what() << std::endl;
             }
             break;
         }
         case 0: {
-            // Î÷èñòêà ïàìÿòè
-            for (auto dept : departments) delete dept;
-            for (auto emp : employees) delete emp;
+            // ÐžÑ‡Ð¸ÑÑ‚ÐºÐ° Ð¿Ð°Ð¼ÑÑ‚Ð¸
+            for (auto _dept : departments) delete _dept;
+            for (auto _emp : employees) delete _emp;
             return 0;
         }
         }
