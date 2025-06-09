@@ -6,15 +6,11 @@
 #include <vector>
 #include "employee.h"
 
-/* FIXME:
-    Класс Department представляет отдел компании
-    с сотрудниками и начальником отдела
-*/
 class Department {
 private:
     std::string _name;
     Employee* _head;
-    std::vector<Employee*> _employees{ };
+    std::vector<Employee*> _employees{};
 
 public:
     Department(const std::string& _n, Employee* _h = nullptr);
@@ -34,4 +30,4 @@ public:
     static DepartmentEx input_from_keyboard(std::vector<Employee*>& _all_employees);
 };
 
-#endif 
+#endif
